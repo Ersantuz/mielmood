@@ -6,13 +6,18 @@ document.addEventListener("DOMContentLoaded", () => {
     // Check for query params
     if(!url.href.includes('?')){
 
-    } else {
+        document.getElementById("title").className = "title";
 
+    } else {
+        
         document.getElementById("start").style.display = "none";
+        document.getElementById("title").className = "header";
+
         // Get Query param
         const id = new URLSearchParams(window.location.search).get('id');
         
         if(!isNaN(Number(id))){
+
             const question = questions
             .filter(question => question.id == id)
             .map(question => question.question);
@@ -26,9 +31,9 @@ document.addEventListener("DOMContentLoaded", () => {
             .map(answer => answer.question_target);
 
             const qa = `<article class="qa">
-                            <h2>${question}</h2>
-                            <a href="index.html?id=${refQuest[0]}" style="font-size: 30px; margin-left: 20px;">${answer[0]}</a>
-                            <a href="index.html?id=${refQuest[1]}" style="font-size: 30px; margin-left: 20px;">${answer[1]}</a>
+                            <h2 class="box">${question}</h2>
+                            <a href="index.html?id=${refQuest[0]}" class="big-a answer">${answer[0]}</a>
+                            <a href="index.html?id=${refQuest[1]}" class="big-a answer">${answer[1]}</a>
                         </article>`;
 
             document.getElementById("render").innerHTML = qa; 
@@ -36,8 +41,8 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
 
             const res = `<article class="res">
-                            <h2>Your Mielmood is ${id}</h2>
-                            <a href="index.html?id=1" style="font-size: 20px;">Restart</a>
+                            <h2>You are Miel${id}</h2>
+                            <a href="index.html?id=1" class="big-a restart">Restart</a>
                         </article>`;
 
             document.getElementById("render").innerHTML = res; 
