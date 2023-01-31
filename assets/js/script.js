@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
 const questions =  [
     {
         "id": "1",
-        "question": "Did you have breakfast this morning?"
+        "question": "Did you have a proper breakfast this morning?"
     },
     {
         "id": "2",
