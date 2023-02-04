@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
         
         document.getElementById("start").style.display = "none";
+        document.getElementById("home-img").style.display = "none";
         document.getElementById("title").className = "header";
 
         // Get Query param
@@ -32,8 +33,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const qa = `<article class="qa">
                             <h2 class="box">${question}</h2>
-                            <a href="index.html?id=${refQuest[0]}" class="big-a answer">${answer[0]}</a>
-                            <a href="index.html?id=${refQuest[1]}" class="big-a answer">${answer[1]}</a>
+                            <div class="center"> 
+                                <a href="index.html?id=${refQuest[0]}" class="big-a answer">${answer[0]}</a>
+                                <a href="index.html?id=${refQuest[1]}" class="big-a answer">${answer[1]}</a>
+                            </div>
                         </article>`;
 
             document.getElementById("render").innerHTML = qa; 
@@ -41,8 +44,13 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
 
             const res = `<article class="res">
+                            <div class="img">
+                                <img src="./assets/images/${id}.jpeg" id="home-img" alt="Miel with boar hat!">
+                            </div>
                             <h2>You are Miel${id}</h2>
-                            <a href="index.html?id=1" class="big-a restart">Restart</a>
+                            <div class="center">
+                                <a href="index.html?id=1" class="big-a restart">Restart</a>
+                            </div>
                         </article>`;
 
             document.getElementById("render").innerHTML = res; 
